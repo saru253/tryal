@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudyAura - Class 1 Quiz (Marathi)</title>
+  <style>
+    body { font-family: Arial; background: #fff; padding: 20px; }
+    .question { margin-bottom: 30px; padding: 20px; border: 1px solid #ddd; border-radius: 10px; }
+    .option { display: block; margin: 8px 0; padding: 10px; border: 1px solid #aaa; border-radius: 6px; cursor: pointer; }
+    .option:hover { background: #f0f0f0; }
+    .correct { background-color: #c0f0c0 !important; }
+    .wrong { background-color: #f0c0c0 !important; }
+  </style>
+  <script>
+    function checkAnswer(el, correctIndex, index) {
+      const options = document.querySelectorAll(`.q${index} .option`);
+      options.forEach(opt => opt.classList.remove('correct', 'wrong'));
+      if (parseInt(el.dataset.index) === correctIndex) {
+        el.classList.add('correct');
+      } else {
+        el.classList.add('wrong');
+        options[correctIndex].classList.add('correct');
+      }
+    }
+  </script>
+</head>
+<body>
+  <h2>Class 1 Quiz – Marathi</h2>
+  <div class="question q0">
+    <strong>1. भारताची राजधानी कोणती?</strong><br>
+    <div class="option" onclick="checkAnswer(this, 2, 0)" data-index="0">मुंबई</div>
+    <div class="option" onclick="checkAnswer(this, 2, 0)" data-index="1">कोलकाता</div>
+    <div class="option" onclick="checkAnswer(this, 2, 0)" data-index="2">नवी दिल्ली</div>
+    <div class="option" onclick="checkAnswer(this, 2, 0)" data-index="3">चेन्नई</div>
+  </div>
+  <div class="question q1">
+    <strong>2. ५ नंतर काय येते?</strong><br>
+    <div class="option" onclick="checkAnswer(this, 1, 1)" data-index="0">4</div>
+    <div class="option" onclick="checkAnswer(this, 1, 1)" data-index="1">6</div>
+    <div class="option" onclick="checkAnswer(this, 1, 1)" data-index="2">8</div>
+    <div class="option" onclick="checkAnswer(this, 1, 1)" data-index="3">2</div>
+  </div>
+</body>
+</html>
