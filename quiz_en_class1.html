@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz - Class 1 English</title>
+  <style>
+    body {{ font-family:sans-serif; padding:30px; background:#f0f4ff; }}
+    h2 {{ color:#1e3a8a; }}
+    .question {{ margin:30px 0; background:#fff; padding:20px; border-radius:10px; box-shadow:0 2px 4px rgba(0,0,0,0.1); }}
+    .option {{ margin:10px 0; padding:10px; border-radius:6px; background:#e0e7ff; cursor:pointer; }}
+    .option:hover {{ background:#c7d2fe; }}
+    .correct {{ background:#a7f3d0 !important; }}
+    .wrong {{ background:#fecaca !important; }}
+  </style>
+  <script>
+    function answer(el, correct) {{
+      const parent = el.parentNode;
+      [...parent.children].forEach(opt => opt.classList.remove('correct', 'wrong'));
+      if(el.dataset.correct === "true") el.classList.add('correct');
+      else {{
+        el.classList.add('wrong');
+        [...parent.children].forEach(opt => {{
+          if(opt.dataset.correct === "true") opt.classList.add('correct');
+        }});
+      }}
+    }}
+  </script>
+</head>
+<body>
+  <h2>Class 1 Quiz – English</h2>
+  <div class="question">
+    <strong>1. What is the capital of India?</strong><br/>
+    <div class="option" onclick="answer(this, false)" data-correct="false">Mumbai</div>
+    <div class="option" onclick="answer(this, false)" data-correct="false">Kolkata</div>
+    <div class="option" onclick="answer(this, true)" data-correct="true">New Delhi</div>
+    <div class="option" onclick="answer(this, false)" data-correct="false">Chennai</div>
+  </div>
+</body>
+</html>
